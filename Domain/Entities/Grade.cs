@@ -10,7 +10,7 @@ namespace Domain.Entities
         public decimal Value { get; set; }
 
         // Navigation Properties
-        public Subject Subject { get; set; }
-        public Student Student { get; set; }
+        public Subject Subject { get; set; } = null!;
+        public Student Student { get; set; } = null!;
     }
 }

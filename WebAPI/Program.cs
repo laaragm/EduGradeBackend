@@ -11,10 +11,12 @@ builder.Services.AddSwaggerGen();
 // Registration for all of our layers
 builder.Services
 	.AddApplication()
-	.AddInfrastructure()
+	.AddInfrastructure(builder.Configuration)
 	.AddPresentation();
 
-builder.Host.UseSerilog((context, configuration) => configuration.ReadFrom.Configuration(context.Configuration));
+builder.Services.AddControllers();
+
+builder.Services.AddRouting(options => options.LowercaseUrls = true);
 
 var app = builder.Build();
 
@@ -24,9 +26,8 @@ if (app.Environment.IsDevelopment())
 	app.UseSwaggerUI();
 }
 
-// Introduce HTTP request logging
-app.UseSerilogRequestLogging();
-
 app.UseHttpsRedirection();
+
+app.MapControllers();
 
 app.Run();

@@ -1,12 +1,32 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Application.DTOs
+﻿namespace Application.DTOs
 {
+	public class SimplifiedGradeDTO
+	{
+		public int Id { get; set; }
+		public decimal Value { get; set; }
+		public SimplifiedSubjectDTO Subject { get; set; } = null!;
+	}
+
 	public class GradeDTO
 	{
+		public int Id { get; set; }
+		public decimal Value { get; set; }
+		public SimplifiedSubjectDTO Subject { get; set; } = null!;
+		public SimplifiedStudentDTO Student { get; set; } = null!;
+}
+
+	public class CreateGradeDTO
+	{
+		public int StudentId { get; set; }
+		public int SubjectId { get; set; }
+		public decimal Value { get; set; }
+	}
+
+	public class UpdateGradeDTO
+	{
+		public int Id { get; set; }
+		public int StudentId { get; set; }
+		public int SubjectId { get; set; }
+		public decimal Value { get; set; }
 	}
 }

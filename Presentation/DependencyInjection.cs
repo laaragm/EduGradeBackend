@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
+using Presentation.Controllers;
 
 namespace Presentation
 {
@@ -6,6 +7,8 @@ namespace Presentation
 	{
 		public static IServiceCollection AddPresentation(this IServiceCollection services)
 		{
+			services.AddScoped<TeachersController>();
+
 			return services;
 		}
 	}

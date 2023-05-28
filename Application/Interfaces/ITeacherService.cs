@@ -1,13 +1,13 @@
-﻿using Domain.Entities;
+﻿using Application.DTOs;
 
 namespace Application.Interfaces
 {
 	public interface ITeacherService
 	{
-		Task<Teacher?> GetByIdAsync(int id);
-		Task<IEnumerable<Teacher>> GetAllAsync();
-		Task AddAsync(Teacher teacher);
-		Task UpdateAsync(Teacher teacher);
+		Task<TeacherDTO?> GetByIdAsync(int id);
+		Task<IEnumerable<TeacherDTO>> GetAllAsync();
+		Task AddAsync(CreateTeacherDTO teacher);
+		Task UpdateAsync(UpdateTeacherDTO teacher);
 		Task DeleteAsync(int id);
 	}
 }

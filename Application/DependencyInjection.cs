@@ -1,6 +1,6 @@
-﻿using Application.Interfaces;
+﻿using Application.Configuration;
+using Application.Interfaces;
 using Application.Services;
-using FluentValidation;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Application
@@ -9,11 +9,7 @@ namespace Application
 	{
 		public static IServiceCollection AddApplication(this IServiceCollection services)
 		{
-			var assembly = typeof(DependencyInjection).Assembly;
-
-			services.AddMediatR(configuration => configuration.RegisterServicesFromAssembly(assembly));
-
-			services.AddValidatorsFromAssembly(assembly);
+			services.AddAutoMapper(typeof(MapperConfig));
 
 			services.AddScoped<ITeacherService, TeacherService>();
 			services.AddScoped<IStudentService, StudentService>();
