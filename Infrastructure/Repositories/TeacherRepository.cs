@@ -2,6 +2,7 @@
 using Domain.Interfaces.Repositories;
 using Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
+using System.Runtime.CompilerServices;
 
 namespace Infrastructure.Repositories
 {
@@ -16,12 +17,14 @@ namespace Infrastructure.Repositories
 
 		public async Task<Teacher?> GetByIdAsync(int id)
 		{
-			return await _context.Teachers.FindAsync(id);
+			return await _context.Teachers
+				.Include(x => x.Subjects)
+				.FirstAsync(x => x.Id == id);
 		}
 
 		public async Task<IEnumerable<Teacher>> GetAllAsync()
 		{
-			return await _context.Teachers.ToListAsync();
+			return await _context.Teachers.Include(x => x.Subjects).ToListAsync();
 		}
 
 		public async Task AddAsync(Teacher teacher)

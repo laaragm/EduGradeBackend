@@ -16,12 +16,14 @@ namespace Infrastructure.Repositories
 
 		public async Task<Student?> GetByIdAsync(int id)
 		{
-			return await _context.Students.FindAsync(id);
+			return await _context.Students
+				.Include(x => x.Grades)
+				.FirstAsync(x => x.Id == id);
 		}
 
 		public async Task<IEnumerable<Student>> GetAllAsync()
 		{
-			return await _context.Students.ToListAsync();
+			return await _context.Students.Include(x => x.Grades).ToListAsync();
 		}
 
 		public async Task AddAsync(Student student)

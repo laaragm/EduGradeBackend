@@ -20,8 +20,8 @@ namespace Presentation.Controllers
 		[HttpGet]
 		public async Task<IActionResult> GetAll()
 		{
-			var teachers = await _studentService.GetAllAsync();
-			return Ok(teachers);
+			var result = await _studentService.GetAllAsync();
+			return Ok(RequestResponse.Success("Subjects retrieved successfully.", result));
 		}
 
 		// GET: api/students/1
