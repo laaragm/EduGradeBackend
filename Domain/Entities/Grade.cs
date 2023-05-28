@@ -7,7 +7,7 @@ namespace Domain.Entities
         public int Id { get; set; }
         public int StudentId { get; set; }
         public int SubjectId { get; set; }
-        public decimal Value { get; set; }
+        public float Value { get; set; }
 
         // Navigation Properties
         public Subject Subject { get; set; } = null!;

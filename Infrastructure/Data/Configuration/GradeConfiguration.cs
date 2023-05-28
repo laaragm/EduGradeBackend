@@ -9,7 +9,7 @@ namespace Infrastructure.Data.Configuration
 		{
 			builder.ToTable("Grades");
 			builder.HasKey(x => x.Id).IsClustered();
-			builder.Property(x => x.Value).HasColumnType("decimal(3,2)").IsRequired();
+			builder.Property(x => x.Value).HasColumnType("float").IsRequired();
 
 			builder.HasOne(g => g.Student)
 				.WithMany(s => s.Grades)

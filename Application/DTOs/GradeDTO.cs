@@ -3,14 +3,14 @@
 	public class SimplifiedGradeDTO
 	{
 		public int Id { get; set; }
-		public decimal Value { get; set; }
+		public float Value { get; set; }
 		public SimplifiedSubjectDTO Subject { get; set; } = null!;
 	}
 
 	public class GradeDTO
 	{
 		public int Id { get; set; }
-		public decimal Value { get; set; }
+		public float Value { get; set; }
 		public SimplifiedSubjectDTO Subject { get; set; } = null!;
 		public SimplifiedStudentDTO Student { get; set; } = null!;
 }
@@ -20,7 +20,7 @@
 		public int Id { get; set; }
 		public int StudentId { get; set; }
 		public int SubjectId { get; set; }
-		public decimal Value { get; set; }
+		public float Value { get; set; }
 	}
 
 	public class UpdateGradeDTO
@@ -28,6 +28,6 @@
 		public int Id { get; set; }
 		public int StudentId { get; set; }
 		public int SubjectId { get; set; }
-		public decimal Value { get; set; }
+		public float Value { get; set; }
 	}
 }
