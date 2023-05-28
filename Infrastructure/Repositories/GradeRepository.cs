@@ -23,6 +23,24 @@ namespace Infrastructure.Repositories
 				.FirstAsync(x => x.Id == id);
 		}
 
+		public async Task<IEnumerable<Grade>> GetByStudentIdAsync(int studentId)
+		{
+			return await _context.Grades
+				.Include(x => x.Subject)
+				.Include(x => x.Student)
+				.Where(x => x.StudentId == studentId)
+				.ToListAsync();
+		}
+
+		public async Task<IEnumerable<Grade>> GetBySubjectIdAsync(int subject)
+		{
+			return await _context.Grades
+				.Include(x => x.Subject)
+				.Include(x => x.Student)
+				.Where(x => x.SubjectId == subject)
+				.ToListAsync();
+		}
+
 		public async Task<IEnumerable<Grade>> GetAllAsync()
 		{
 			return await _context.Grades

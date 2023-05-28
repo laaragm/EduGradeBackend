@@ -65,5 +65,33 @@ namespace Presentation.Controllers
 			await _gradeService.DeleteAsync(id);
 			return NoContent();
 		}
+
+		// GET: api/grades/student/2
+		[HttpGet("student/{studentId}")]
+		public async Task<IActionResult> GetGradesByStudentId(int studentId)
+		{
+			var grades = await _gradeService.GetByStudentIdAsync(studentId);
+
+			if (grades == null || !grades.Any())
+			{
+				return NotFound(RequestResponse.Failure($"No grades found for student with id {studentId}."));
+			}
+
+			return Ok(RequestResponse.Success($"Grades retrieved successfully for student with id {studentId}.", grades));
+		}
+
+		// GET: api/grades/subject/3
+		[HttpGet("subject/{subjectId}")]
+		public async Task<IActionResult> GetGradesBySubjectId(int subjectId)
+		{
+			var grades = await _gradeService.GetBySubjectIdAsync(subjectId);
+
+			if (grades == null || !grades.Any())
+			{
+				return NotFound(RequestResponse.Failure($"No grades found for student with id {subjectId}."));
+			}
+
+			return Ok(RequestResponse.Success($"Grades retrieved successfully for student with id {subjectId}.", grades));
+		}
 	}
 }

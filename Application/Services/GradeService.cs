@@ -64,5 +64,17 @@ namespace Application.Services
 				await _repository.DeleteAsync(grade);
 			}
 		}
+
+		public async Task<IEnumerable<GradeDTO>> GetBySubjectIdAsync(int subjectId)
+		{
+			var result = await _repository.GetBySubjectIdAsync(subjectId);
+			return result.Select(_mapper.Map<GradeDTO>);
+		}
+
+		public async Task<IEnumerable<GradeDTO>> GetByStudentIdAsync(int studentId)
+		{
+			var result = await _repository.GetByStudentIdAsync(studentId);
+			return result.Select(_mapper.Map<GradeDTO>);
+		}
 	}
 }
