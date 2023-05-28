@@ -20,7 +20,7 @@ namespace Application.Services
 		public async Task<TeacherDTO?> GetByIdAsync(int id)
 		{
 			var teacher = await _repository.GetByIdAsync(id);
-			if (teacher == null)
+			if (teacher != null)
 			{
 				var result = _mapper.Map<TeacherDTO>(teacher);
 				return result;

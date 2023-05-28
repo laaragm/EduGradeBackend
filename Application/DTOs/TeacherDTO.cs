@@ -17,6 +17,7 @@
 
 	public class CreateTeacherDTO
 	{
+		public int Id { get; set; }
 		public string Name { get; set; } = string.Empty;
 		public string Cpf { get; set; } = string.Empty;
 		public string ExpertiseAreas { get; set; } = string.Empty;

@@ -10,19 +10,19 @@ namespace Application.Configuration
 		{
 			CreateMap<Grade, GradeDTO>().ReverseMap();
 			CreateMap<Grade, UpdateGradeDTO>().ReverseMap();
-			CreateMap<Grade, CreateGradeDTO>();
+			CreateMap<Grade, CreateGradeDTO>().ReverseMap();
 
 			CreateMap<Teacher, TeacherDTO>().ReverseMap();
 			CreateMap<Teacher, UpdateTeacherDTO>().ReverseMap();
-			CreateMap<Teacher, CreateTeacherDTO>();
+			CreateMap<Teacher, CreateTeacherDTO>().ReverseMap();
 
 			CreateMap<Student, StudentDTO>().ReverseMap();
 			CreateMap<Student, UpdateStudentDTO>().ReverseMap();
-			CreateMap<Student, CreateStudentDTO>();
+			CreateMap<Student, CreateStudentDTO>().ReverseMap();
 
 			CreateMap<Subject, SubjectDTO>().ReverseMap();
 			CreateMap<Subject, UpdateSubjectDTO>().ReverseMap();
-			CreateMap<Subject, CreateSubjectDTO>();
+			CreateMap<Subject, CreateSubjectDTO>().ReverseMap();
 		}
 	}
 }
