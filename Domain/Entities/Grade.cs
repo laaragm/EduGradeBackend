@@ -3,7 +3,7 @@
 namespace Domain.Entities
 {
     public class Grade : IEntity
-	{
+    {
         public int Id { get; set; }
         public int StudentId { get; set; }
         public int SubjectId { get; set; }
