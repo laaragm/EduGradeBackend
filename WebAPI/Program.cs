@@ -14,6 +14,7 @@ builder.Services.AddCors(options =>
 					  {
 						  policy.WithOrigins(configuration["Settings:FrontendBaseUrl"]!);
 						  policy.AllowAnyMethod();
+						  policy.AllowAnyHeader();
 					  });
 });
 
