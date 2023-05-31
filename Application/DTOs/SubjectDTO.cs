@@ -10,7 +10,7 @@
 	{
 		public int Id { get; set; }
 		public string Name { get; set; } = string.Empty;
-		public int TeacherId { get; set; }
+		public SimplifiedTeacherDTO Teacher { get; set; }
 		public IList<SimplifiedGradeDTO> Grades { get; set; } = null!;
 	}
 
