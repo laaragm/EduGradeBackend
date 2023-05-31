@@ -1,9 +1,20 @@
 using Application;
 using Infrastructure;
 using Presentation;
-using Serilog;
+
+var MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
 
 var builder = WebApplication.CreateBuilder(args);
+var configuration = builder.Configuration;
+
+builder.Services.AddCors(options =>
+{
+	options.AddPolicy(name: MyAllowSpecificOrigins,
+					  policy =>
+					  {
+						  policy.WithOrigins(configuration["Settings:FrontendBaseUrl"]!);
+					  });
+});
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
@@ -11,8 +22,18 @@ builder.Services.AddSwaggerGen();
 // Registration for all of our layers
 builder.Services
 	.AddApplication()
-	.AddInfrastructure(builder.Configuration)
+	.AddInfrastructure(configuration)
 	.AddPresentation();
+
+builder.Services.AddCors(options =>
+{
+	options.AddDefaultPolicy(builder =>
+	{
+		builder.AllowAnyOrigin()
+			   .AllowAnyMethod()
+			   .AllowAnyHeader();
+	});
+});
 
 builder.Services.AddControllers();
 
@@ -27,6 +48,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+app.UseCors(MyAllowSpecificOrigins);
 
 app.MapControllers();
 

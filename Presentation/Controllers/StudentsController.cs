@@ -16,12 +16,12 @@ namespace Presentation.Controllers
 			_studentService = studentService;
 		}
 
-		// GET: api/teachers
+		// GET: api/students
 		[HttpGet]
 		public async Task<IActionResult> GetAll()
 		{
 			var result = await _studentService.GetAllAsync();
-			return Ok(RequestResponse.Success("Subjects retrieved successfully.", result));
+			return Ok(RequestResponse.Success("Students retrieved successfully.", result));
 		}
 
 		// GET: api/students/1
