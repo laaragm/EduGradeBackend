@@ -29,17 +29,10 @@ namespace Application.Services
 			return null;
 		}
 
-		public async Task<IDictionary<int, IList<GradeDTO>>> GetAllAsync()
+		public async Task<IEnumerable<GradeDTO>> GetAllAsync()
 		{
 			var grades = await _repository.GetAllAsync();
-			var result = new Dictionary<int, IList<GradeDTO>>();
-			foreach (var grade in grades)
-			{
-				var keyExists = result.ContainsKey(grade.StudentId);
-				if (!keyExists)
-					result[grade.StudentId] = new List<GradeDTO>();
-				result[grade.StudentId].Add(_mapper.Map<GradeDTO>(grade));
-			}
+			var result = grades.ToList().Select(_mapper.Map<GradeDTO>);
 
 			return result;
 		}

@@ -5,7 +5,7 @@ namespace Application.Interfaces
 	public interface IGradeService
 	{
 		Task<GradeDTO?> GetByIdAsync(int id);
-		Task<IDictionary<int, IList<GradeDTO>>> GetAllAsync();
+		Task<IEnumerable<GradeDTO>> GetAllAsync();
 		Task<IEnumerable<GradeDTO>> GetBySubjectIdAsync(int subjectId);
 		Task<IEnumerable<GradeDTO>> GetByStudentIdAsync(int studentId);
 		Task AddAsync(CreateGradeDTO grade);
