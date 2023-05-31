@@ -13,6 +13,7 @@ builder.Services.AddCors(options =>
 					  policy =>
 					  {
 						  policy.WithOrigins(configuration["Settings:FrontendBaseUrl"]!);
+						  policy.AllowAnyMethod();
 					  });
 });
 
