@@ -45,9 +45,9 @@ namespace Presentation.Controllers
 			return Ok(RequestResponse.Success("Student created successfully."));
 		}
 
-		// PUT: api/students/1
-		[HttpPut("{id}")]
-		public async Task<IActionResult> Put(int id, UpdateStudentDTO dto)
+		// PATCH: api/students/1
+		[HttpPatch("{id}")]
+		public async Task<IActionResult> Patch(int id, UpdateStudentDTO dto)
 		{
 			if (id != dto.Id)
 			{

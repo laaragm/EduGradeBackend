@@ -45,9 +45,9 @@ namespace Presentation.Controllers
 			return Ok(RequestResponse.Success("Grade created successfully."));
 		}
 
-		// PUT: api/grades/1
-		[HttpPut("{id}")]
-		public async Task<IActionResult> Put(int id, UpdateGradeDTO dto)
+		// PATCH: api/grades/1
+		[HttpPatch("{id}")]
+		public async Task<IActionResult> Patch(int id, UpdateGradeDTO dto)
 		{
 			if (id != dto.Id)
 			{

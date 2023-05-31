@@ -45,9 +45,9 @@ namespace Presentation.Controllers
 			return Ok(RequestResponse.Success("Subject created successfully."));
 		}
 
-		// PUT: api/subjects/1
-		[HttpPut("{id}")]
-		public async Task<IActionResult> Put(int id, UpdateSubjectDTO dto)
+		// PATCH: api/subjects/1
+		[HttpPatch("{id}")]
+		public async Task<IActionResult> Patch(int id, UpdateSubjectDTO dto)
 		{
 			if (id != dto.Id)
 			{
