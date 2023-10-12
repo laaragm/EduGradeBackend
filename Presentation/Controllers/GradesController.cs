@@ -21,7 +21,7 @@ namespace Presentation.Controllers
 		public async Task<IActionResult> GetAll()
 		{
 			var result = await _gradeService.GetAllAsync();
-			return Ok(RequestResponse.Success("Subjects retrieved successfully.", result));
+			return Ok(RequestResponse.Success("Grades retrieved successfully.", result));
 		}
 
 		// GET: api/grades/1

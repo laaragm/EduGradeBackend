@@ -21,7 +21,7 @@ namespace Presentation.Controllers
 		public async Task<IActionResult> GetAll()
 		{
 			var result = await _teacherService.GetAllAsync();
-			return Ok(RequestResponse.Success("Subjects retrieved successfully.", result));
+			return Ok(RequestResponse.Success("Teachers retrieved successfully.", result));
 		}
 
 		// GET: api/teachers/1
